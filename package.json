@@ -1,0 +1,19 @@
+{
+  "name": "drag-paper",
+  "version": "1.0.0",
+  "description": "Drag and drop that adds a realistic rotation, when dragged from the corners",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kodemonki/drag-paper.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kodemonki/drag-paper/issues"
+  },
+  "homepage": "https://github.com/kodemonki/drag-paper#readme"
+}
