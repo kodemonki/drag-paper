@@ -7,8 +7,8 @@ body {
   position: absolute;
   display: inline-block;
   transition: transform 0.01s;
-  background-color: blue;
-  transform: translate(-50%, 50%);
+
+  transform: translate(-50%, -50%);
 }
 
 .draggable img {
