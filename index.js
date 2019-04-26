@@ -10,8 +10,13 @@ draggables.forEach(initDrag);
 
 function initDrag(item) {
   ball = item;
-  ball.positions = [];
-  interval = setInterval(updateOrbit, 50);
+  let rect = ball.getBoundingClientRect();
+  let centerX = document.body.offsetWidth / 2 - rect.width / 2;
+  let centerY = document.body.offsetHeight / 4 - rect.height / 2;
+  ball.style.left = centerX + "px";
+  ball.style.top = centerY + "px";
+  //ball.positions = [];
+  //  interval = setInterval(updateOrbit, 50);
 }
 function updateOrbit() {
   let rect = ball.getBoundingClientRect();
@@ -50,21 +55,21 @@ function updateOrbit() {
 ball.onmousedown = function(event) {
   clearInterval(interval);
   let rect = ball.getBoundingClientRect();
-  let shiftX = event.clientX - rect.left;
-  let shiftY = event.clientY - rect.top;
+  ball.shiftX = event.clientX - rect.left;
+  ball.shiftY = event.clientY - rect.top;
 
-  ball.style.position = "absolute";
+  //ball.style.position = "absolute";
   ball.style.zIndex = 1000;
-  document.body.append(ball);
+  //document.body.append(ball);
 
-  moveAt(event.pageX, event.pageY);
+  //moveAt(event.pageX, event.pageY);
 
   // centers the ball at (pageX, pageY) coordinates
   function moveAt(pageX, pageY) {
     //console.log("moveAt(" + pageX + "," + pageY + ")");
 
-    let currentX = pageX - shiftX,
-      currentY = pageY - shiftY;
+    let currentX = pageX - ball.shiftX,
+      currentY = pageY - ball.shiftY;
 
     ball.style.left = currentX + "px";
     ball.style.top = currentY + "px";
@@ -97,7 +102,7 @@ ball.onmousedown = function(event) {
   document.addEventListener("mousemove", onMouseMove);
 
   // (4) drop the ball, remove unneeded handlers
-  ball.onmouseleave = ball.onmouseup = function() {
+  ball.parentNode.onmouseup = ball.onmouseup = function() {
     document.removeEventListener("mousemove", onMouseMove);
     ball.onmouseup = null;
     ball.onmouseleave = null;

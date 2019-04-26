@@ -4,43 +4,13 @@ body {
 }
 
 .draggable {
-  position: relative;
+  position: absolute;
   display: inline-block;
+  transition: transform 0.01s;
+  background-color: blue;
+  transform: translate(-50%, 50%);
 }
 
 .draggable img {
   transform: scaleY(-1);
-}
-
-.draggable__tl {
-  background-color: red;
-  position: absolute;
-  top: 0%;
-  left: 0%;
-  width: 50%;
-  height: 50%;
-}
-.draggable__tr {
-  background-color: blue;
-  position: absolute;
-  top: 0%;
-  left: 50%;
-  width: 50%;
-  height: 50%;
-}
-.draggable__bl {
-  background-color: green;
-  position: absolute;
-  top: 50%;
-  left: 0%;
-  width: 50%;
-  height: 50%;
-}
-.draggable__br {
-  background-color: yellow;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  width: 50%;
-  height: 50%;
 }
