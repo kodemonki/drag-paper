@@ -16,27 +16,6 @@ function initDrag(item) {
 
   ball.style.left = centerX + "px";
   ball.style.top = centerY + "px";
-
-  interval = setInterval(updateOrbit, 10);
-}
-
-function updateOrbit() {
-  let rect = ball.getBoundingClientRect(),
-    centerX = document.body.offsetWidth / 2 - rect.width / 2,
-    centerY = document.body.offsetHeight / 2 - rect.height / 2,
-    hyp = radius,
-    opp = Math.sin((angle * Math.PI) / 180) * hyp,
-    adj = Math.cos((angle * Math.PI) / 180) * hyp;
-
-  ball.style.left = centerX + opp + "px";
-  ball.style.top = centerY - adj + "px";
-
-  ball.style.transform = "rotate(" + angleDeg + "deg)";
-
-  angle += 2;
-  if (angle >= 360) {
-    angle - 360;
-  }
 }
 
 ball.onmousedown = function(event) {
